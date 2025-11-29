@@ -3,98 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>deo inc studio</title>
-  <link rel="icon" href="https://mir-s3-cdn-cf.behance.net/project_modules/source/f1f3a7126518237.63ac54789644f.gif" type="image/x-icon">
+  <title>deo inc studio — nightcore edition</title>
   <style>
     :root{
-      --bg:#ffffff;
-      --top:#ffffff;
-      --card:#ffffff;
-      --accent:#6d5dfc;
-      --accent-2:#7c3aed;
-      --text:#0b1220;
-      --sub:#596075;
-      --muted:#8c92a6;
+      --bg:#0b0b14;
+      --card:#131323;
+      --accent:#ff4d9b;
+      --accent-2:#ff7ae6;
+      --accent-orange-1:#ff8a4b;
+      --accent-orange-2:#ff6a00;
+      --text:#ffffff;
+      --sub:#c4c4d9;
+      --muted:#78789a;
       --radius:14px;
-      --glass-blur:8px;
     }
-
-    /* Reset + layout */
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;padding:28px;background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--text);-webkit-font-smoothing:antialiased;
-      display:flex;justify-content:center;
-    }
+    body{margin:0;background:radial-gradient(circle at top,#1a1a33 0%,#0b0b14 60%);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;color:var(--text);padding:28px;display:flex;justify-content:center}
+    .wrapper{width:100%;max-width:980px}
 
-    .wrapper{width:100%; background-color: #ffffff;}
+    .topbar{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;margin-bottom:18px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 10px 40px rgba(8,6,20,.45)}
+    .logo{font-weight:800;font-size:20px;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
 
-    /* Topbar */
-    .topbar{background:linear-gradient(180deg,#ffffff,#ffffff);border-radius:12px;box-shadow:0 6px 24px rgba(16,24,40,.08);align-items:center;gap:16px;margin-bottom:18px; width: 100%;}
-    .logo{font-weight:700;font-size:18px;color:var(--text)}
-    .top-actions{margin-left:auto;display:flex;gap:8px}
-    .top-actions button{background:transparent;border:1px solid rgba(88,96,120,.08);padding:8px 12px;border-radius:10px;color:var(--sub);font-weight:600}
-
-    /* hero gif */
     .hero{margin-bottom:18px}
-    .hero-gif{width:100%;height:220px;;border-radius:12px;box-shadow:0 8px 30px rgba(16,24,40,.06);display:block}
+    .hero-gif{width:100%;height:220px;border-radius:12px;box-shadow:0 20px 60px rgba(255,70,170,.08)}
 
-    /* cards */
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,.06);margin-bottom:14px}
-    .glass{backdrop-filter:blur(var(--glass-blur));}
-
-    h1{margin:0 0 6px;font-size:20px}
-    h2{margin:0 0 10px;font-size:16px;color:var(--text)}
-
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.6);margin-bottom:14px;border:1px solid rgba(255,255,255,.03)}
+    h2{margin:0 0 8px;color:var(--accent-2)}
     label{display:block;font-size:14px;color:var(--sub);margin-bottom:8px}
-    input[type=file]{display:block;width:100%;padding:12px;border-radius:10px;border:1px solid rgba(16,24,40,.04);background:linear-gradient(180deg,#fff,#fbfbff);color:var(--text)}
+    input[type=file]{display:block;width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,0.02);color:var(--text)}
     .muted{color:var(--muted);font-size:13px;margin-top:8px}
 
     .row{display:flex;gap:12px;align-items:center}
     .btn-row{display:flex;gap:10px;flex-wrap:wrap}
 
-    button{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:0;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700;box-shadow:0 6px 20px rgba(124,58,237,.12)}
-    button.ghost{background:transparent;color:var(--text);border:1px solid rgba(16,24,40,.06);box-shadow:none}
+    button{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:0;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700;box-shadow:0 8px 30px rgba(255,80,160,.08)}
+    button.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.06);box-shadow:none}
     button.small{padding:8px 10px;font-size:13px}
+    button.preset-selected{background:linear-gradient(90deg,var(--accent-orange-1),var(--accent-orange-2));color:white}
 
-    /* progress */
-    #progress{width:100%;height:12px;background:linear-gradient(90deg,#f0f0f5,#f7f7fb);border-radius:10px;overflow:hidden;margin-top:12px;position:relative}
-    #progress > i{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;box-shadow:0 6px 20px rgba(109,93,252,.12)}
+    #progress{width:100%;height:12px;background:linear-gradient(90deg,#0f0f17,#12121b);border-radius:10px;overflow:hidden;margin-top:12px;position:relative;border:1px solid rgba(255,255,255,.03)}
+    #progress > i{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;box-shadow:0 10px 30px rgba(255,90,170,.06)}
 
-    .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
     .control{padding:6px}
     .control small{color:var(--muted)}
 
     footer{text-align:center;margin-top:18px;color:var(--muted);font-size:13px}
 
-    /* sliders: styled like nightcore.studio but simple */
     input[type=range]{-webkit-appearance:none;width:100%;height:14px;background:transparent;margin:8px 0}
     input[type=range]::-webkit-slider-runnable-track{height:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
     input[type=range]::-moz-range-track{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
-    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;margin-top:-6px;width:20px;height:20px;border-radius:50%;background:white;border:4px solid var(--accent);box-shadow:0 6px 16px rgba(109,93,252,.14);}
-    input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:white;border:4px solid var(--accent);box-shadow:0 6px 16px rgba(109,93,252,.14);}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;margin-top:-6px;width:20px;height:20px;border-radius:50%;background:white;border:4px solid var(--accent);box-shadow:0 6px 16px rgba(109,93,252,.14);} 
 
-    /* subtle animations */
-    .card{transition:transform .28s ease,box-shadow .28s ease}
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(16,24,40,.08)}
-    .hero-gif{transition:transform .6s cubic-bezier(.2,.9,.2,1);}
-    .hero-gif:hover{transform:scale(1.02)}
-
-    @media (max-width:1000px){.wrapper{width:92%}}    
+    @media (max-width:1000px){.wrapper{width:92%}}
   </style>
 </head>
 <body>
   <div class="wrapper">
     <header class="topbar">
-      <center><div class="logo">deo inc studio</div></center>
-      <div class="top-actions">
-
-      </div>
+      <div class="logo">deo inc studio</div>
     </header>
 
     <div class="hero">
-      <!-- replace YOUR-GIF-LINK-HERE with an actual gif URL -->
-      <img class="hero-gif" src="https://mir-s3-cdn-cf.behance.net/project_modules/source/f1f3a7126518237.63ac54789644f.gif" alt="banner gif" />
+      <img class="hero-gif" src="https://media.tenor.com/KobFMdJo1S0AAAAM/agc-animated.gif" alt="banner gif" />
     </div>
 
     <div class="card glass">
@@ -135,31 +106,46 @@
         <input id="bass" type="range" min="-12" max="12" step="0.5" value="0" />
       </div>
       <div class="control">
+        <label>treble (dB) <small id="trebleVal">0 dB</small></label>
+        <input id="treble" type="range" min="-12" max="12" step="0.5" value="0" />
+      </div>
+      <div class="control">
         <label>reverb <small id="reverbVal">0%</small></label>
         <input id="reverb" type="range" min="0" max="100" step="1" value="0" />
+      </div>
+      <div class="control">
+        <label>delay (ms) <small id="delayVal">0 ms</small></label>
+        <input id="delay" type="range" min="0" max="800" step="10" value="0" />
       </div>
       <div class="control">
         <label>master volume <small id="gainVal">100%</small></label>
         <input id="gain" type="range" min="0" max="200" step="1" value="100" />
       </div>
-      <div class="control">
+
+      <div class="control" style="grid-column:1/-1">
         <label>presets</label>
-        <div class="btn-row">
+        <div class="btn-row" id="presetsRow">
           <button id="nightcore" class="small">nightcore</button>
-          <button id="daycore" class="small" style="background:linear-gradient(90deg,#ff8a4b,#ff6a00)">daycore</button>
+          <button id="daycore" class="small">daycore</button>
+          <button id="slowed" class="small">slowed + reverb</button>
+          <button id="bassboost" class="small">bass boost</button>
+          <button id="eightd" class="small">8D audio</button>
+          <button id="chipmunk" class="small">chipmunk</button>
+          <button id="demon" class="small">demon</button>
+          <button id="vapor" class="small">vaporwave</button>
+          <button id="tstyle" class="small">TS style</button>
           <button id="reset" class="small ghost">Reset</button>
         </div>
       </div>
+
     </div>
-
-
 
     <footer>notes: pitch slider changes playback rate (so pitch + speed are linked). export / download applies current settings and produces a WAV file.</footer>
   </div>
 
 <script>
 (async ()=>{
-  // UI
+  // UI refs
   const fileInput = document.getElementById('file');
   const playBtn = document.getElementById('playPause');
   const rewindBtn = document.getElementById('rewind');
@@ -171,18 +157,21 @@
   const speedEl = document.getElementById('speed');
   const pitchEl = document.getElementById('pitch');
   const bassEl = document.getElementById('bass');
+  const trebleEl = document.getElementById('treble');
   const reverbEl = document.getElementById('reverb');
+  const delayEl = document.getElementById('delay');
   const gainEl = document.getElementById('gain');
 
   const speedVal = document.getElementById('speedVal');
   const pitchVal = document.getElementById('pitchVal');
   const bassVal = document.getElementById('bassVal');
+  const trebleVal = document.getElementById('trebleVal');
   const reverbVal = document.getElementById('reverbVal');
+  const delayVal = document.getElementById('delayVal');
   const gainVal = document.getElementById('gainVal');
 
-  const nightcoreBtn = document.getElementById('nightcore');
-  const daycoreBtn = document.getElementById('daycore');
-  const resetBtn = document.getElementById('reset');
+  const presetsRow = document.getElementById('presetsRow');
+  const presetButtons = presetsRow.querySelectorAll('button');
 
   // helper: style range background to show progress
   function styleRange(el){
@@ -190,9 +179,9 @@
     const max = parseFloat(el.max || 100);
     const val = parseFloat(el.value);
     const pct = ((val - min) / (max - min)) * 100;
-    el.style.background = `linear-gradient(90deg,var(--accent) ${pct}%, #e9e9ef ${pct}%)`;
+    el.style.background = `linear-gradient(90deg,var(--accent) ${pct}%, #1b1b2a ${pct}%)`;
   }
-  [speedEl,pitchEl,bassEl,reverbEl,gainEl].forEach(styleRange);
+  [speedEl,pitchEl,bassEl,trebleEl,reverbEl,delayEl,gainEl].forEach(styleRange);
 
   // WebAudio state
   let audioCtx = null;
@@ -201,44 +190,38 @@
   let startAt = 0; // when playback started in ctx.currentTime
   let pausedAt = 0; // offset when paused
   let isPlaying = false;
-  let duration = 0;
   let animationFrame = null;
 
-  // Nodes (created per-play because BufferSource can't be restarted)
-  function createNodesForPlayback(ctx){
+  // 8D realtime LFO
+  let panInterval = null;
+  let lfoPhase = 0;
+
+  // create node graph for playback (recreated each play because BufferSource cannot be restarted)
+  function createNodesForPlayback(ctx, apply8D=false){
     const gainNode = ctx.createGain();
-    const lowShelf = ctx.createBiquadFilter(); lowShelf.type = 'lowshelf';
+    const lowShelf = ctx.createBiquadFilter(); lowShelf.type = 'lowshelf'; lowShelf.frequency.value = 200; lowShelf.gain.value = parseFloat(bassEl.value);
+    const highShelf = ctx.createBiquadFilter(); highShelf.type = 'highshelf'; highShelf.frequency.value = 3000; highShelf.gain.value = parseFloat(trebleEl.value);
     const convolver = ctx.createConvolver();
+    const delayNode = ctx.createDelay(5.0); delayNode.delayTime.value = parseFloat(delayEl.value)/1000.0; // ms -> s
+    const panner = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
 
-    // configure nodes based on UI
-    const bassDb = parseFloat(bassEl.value);
-    lowShelf.frequency.value = 200; // boost low freq region
-    lowShelf.gain.value = bassDb;
+    gainNode.gain.value = parseFloat(gainEl.value)/100;
 
-    const masterGain = gainNode;
-    masterGain.gain.value = parseFloat(gainEl.value)/100;
-
-    // build impulse for convolver depending on reverb slider
     const reverbAmount = parseFloat(reverbEl.value)/100;
     if (reverbAmount > 0){
       convolver.buffer = makeImpulseResponse(ctx, 2.5 * reverbAmount, 2.0 * reverbAmount);
-    } else {
-      convolver.buffer = null;
-    }
+    } else { convolver.buffer = null; }
 
-    return {gainNode: masterGain, lowShelf, convolver};
+    return {gainNode, lowShelf, highShelf, convolver, delayNode, panner};
   }
 
-  function makeImpulseResponse(ctx, seconds = 2.0, decay = 2.0) {
+  function makeImpulseResponse(ctx, seconds = 2.0, decay = 2.0){
     const rate = ctx.sampleRate;
     const length = Math.max(1, Math.floor(rate * seconds));
     const impulse = ctx.createBuffer(2, length, rate);
-
     for (let ch = 0; ch < 2; ch++){
       const channelData = impulse.getChannelData(ch);
-      for (let i = 0; i < length; i++){
-        channelData[i] = (Math.random()*2-1) * Math.pow(1 - i/length, decay);
-      }
+      for (let i = 0; i < length; i++) channelData[i] = (Math.random()*2-1) * Math.pow(1 - i/length, decay);
     }
     return impulse;
   }
@@ -249,22 +232,19 @@
     if (!file) return;
     fileNameLabel.textContent = file.name;
 
-    if (audioCtx) audioCtx.close();
+    if (audioCtx) await audioCtx.close();
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
     const arr = await file.arrayBuffer();
     buffer = await audioCtx.decodeAudioData(arr.slice(0));
-    duration = buffer.duration;
     resetPlaybackState();
     updateTimeUI();
   });
 
   function resetPlaybackState(){
     stopPlayback();
-    pausedAt = 0;
-    startAt = 0;
-    isPlaying = false;
-    progressBar.style.width = '0%';
+    pausedAt = 0; startAt = 0; isPlaying = false; progressBar.style.width = '0%';
+    clearPresetHighlight();
   }
 
   // build & start a source playing from offset
@@ -281,167 +261,116 @@
     const pitchRatio = Math.pow(2, pitchSemitones/12);
     source.playbackRate.value = speed * pitchRatio; // NOTE: pitch changes speed here
 
+    // create nodes
     const nodes = createNodesForPlayback(audioCtx);
 
+    // routing: source -> lowShelf -> highShelf -> (convolver) -> delay -> gain -> destination
     source.connect(nodes.lowShelf);
-    nodes.lowShelf.connect(nodes.gainNode);
+    nodes.lowShelf.connect(nodes.highShelf);
+    nodes.highShelf.connect(nodes.gainNode);
 
     if (nodes.convolver.buffer){
-      nodes.lowShelf.connect(nodes.convolver);
+      nodes.highShelf.connect(nodes.convolver);
       nodes.convolver.connect(nodes.gainNode);
     }
 
-    nodes.gainNode.connect(audioCtx.destination);
+    // delay and panning
+    nodes.gainNode.connect(nodes.delayNode);
+    nodes.delayNode.connect(audioCtx.destination);
+
+    // setup 8D if active
+    if (activePresetId === 'eightd' && nodes.panner){
+      nodes.gainNode.disconnect();
+      nodes.gainNode.connect(nodes.panner);
+      nodes.panner.connect(nodes.delayNode);
+      start8DLFO(nodes.panner);
+    }
+
+    nodes.gainNode.connect(audioCtx.destination); // keep a direct path too for fullness
 
     // start and track times
     startAt = audioCtx.currentTime;
-    try{
-      source.start(0, offset);
-    }catch(err){
-      console.error('start failed', err);
-    }
+    try{ source.start(0, offset); }catch(err){ console.error('start failed', err); }
 
-    isPlaying = true;
-    scheduleStopForSource(source, offset);
-    tick();
+    isPlaying = true; tick();
 
-    // when ended
     source.onended = ()=>{
-      isPlaying = false;
-      cancelAnimationFrame(animationFrame);
-      updateTimeUI();
-      playBtn.textContent = 'Play';
+      isPlaying = false; cancelAnimationFrame(animationFrame); updateTimeUI(); playBtn.textContent = 'Play'; stop8DLFO();
     };
   }
 
-  function scheduleStopForSource(src, offset){
-    const speed = parseFloat(speedEl.value);
-    const pitchSemitones = parseFloat(pitchEl.value);
-    const pitchRatio = Math.pow(2, pitchSemitones/12);
-    const rate = speed * pitchRatio;
-    const remaining = (buffer.duration - offset) / rate;
-  }
+  function stop8DLFO(){ if (panInterval){ clearInterval(panInterval); panInterval = null; } }
+  function start8DLFO(panner){ stop8DLFO(); const rateHz = 0.18; let t0 = audioCtx.currentTime; panInterval = setInterval(()=>{
+      lfoPhase += 0.02; const pan = Math.sin(lfoPhase) * 0.9; if(panner) panner.pan.value = pan; }, 20); }
+
+  function scheduleStopForSource(src, offset){ /* unused but reserved */ }
 
   function stopPlayback(){
-    if (source){
-      try{ source.onended = null; source.stop(0); }catch(e){}
-      source.disconnect && source.disconnect();
-      source = null;
-    }
-    isPlaying = false;
-    cancelAnimationFrame(animationFrame);
+    if (source){ try{ source.onended = null; source.stop(0); }catch(e){} source.disconnect && source.disconnect(); source = null; }
+    isPlaying = false; cancelAnimationFrame(animationFrame); stop8DLFO();
   }
 
-  function tick(){
-    cancelAnimationFrame(animationFrame);
-    animationFrame = requestAnimationFrame(()=>{
-      updateTimeUI();
-      if (isPlaying) tick();
-    });
-  }
+  function tick(){ cancelAnimationFrame(animationFrame); animationFrame = requestAnimationFrame(()=>{ updateTimeUI(); if (isPlaying) tick(); }); }
 
   function currentOffset(){
-    if (!buffer) return 0;
-    if (!isPlaying) return pausedAt;
-    const elapsed = audioCtx.currentTime - startAt;
-    const speed = parseFloat(speedEl.value);
-    const pitchSemitones = parseFloat(pitchEl.value);
-    const pitchRatio = Math.pow(2, pitchSemitones/12);
-    const rate = speed * pitchRatio;
-    return Math.min(buffer.duration, pausedAt + elapsed * rate);
+    if (!buffer) return 0; if (!isPlaying) return pausedAt;
+    const elapsed = audioCtx.currentTime - startAt; const speed = parseFloat(speedEl.value); const pitchSemitones = parseFloat(pitchEl.value);
+    const pitchRatio = Math.pow(2, pitchSemitones/12); const rate = speed * pitchRatio; return Math.min(buffer.duration, pausedAt + elapsed * rate);
   }
 
-  function updateTimeUI(){
-    if (!buffer){ timeLabel.textContent = '00:00 / 00:00'; return; }
-    const cur = currentOffset();
-    const total = buffer.duration;
-    timeLabel.textContent = formatTime(cur) + ' / ' + formatTime(total);
-    const pct = (cur / total) * 100;
-    progressBar.style.width = pct + '%';
-  }
+  function updateTimeUI(){ if (!buffer){ timeLabel.textContent = '00:00 / 00:00'; return; } const cur = currentOffset(); const total = buffer.duration; timeLabel.textContent = formatTime(cur) + ' / ' + formatTime(total); const pct = (cur / total) * 100; progressBar.style.width = pct + '%'; }
 
-  function formatTime(s){
-    if (!isFinite(s)) return '00:00';
-    const m = Math.floor(s/60).toString().padStart(2,'0');
-    const sec = Math.floor(s%60).toString().padStart(2,'0');
-    return m+':'+sec;
-  }
+  function formatTime(s){ if (!isFinite(s)) return '00:00'; const m = Math.floor(s/60).toString().padStart(2,'0'); const sec = Math.floor(s%60).toString().padStart(2,'0'); return m+':'+sec; }
 
-  // UI event handlers
-  playBtn.addEventListener('click',()=>{
-    if (!buffer) return alert('Load an audio file first');
-    if (!isPlaying){
-      startPlayback(pausedAt);
-      playBtn.textContent = 'Pause';
-    } else {
-      // pause
-      pausedAt = currentOffset();
-      stopPlayback();
-      playBtn.textContent = 'Play';
-    }
+  // wire sliders
+  function wireSlider(slider, display, fmt){ const set = ()=>{ display.textContent = fmt ? fmt(slider.value) : slider.value; styleRange(slider); }; slider.addEventListener('input', ()=>{ set(); if (isPlaying){ const cur = currentOffset(); pausedAt = cur; startPlayback(pausedAt); } else updateTimeUI(); }); set(); }
+  wireSlider(speedEl, speedVal, v=>parseFloat(v).toFixed(2)+'x'); wireSlider(pitchEl, pitchVal, v=>v+' st'); wireSlider(bassEl, bassVal, v=>v+' dB'); wireSlider(trebleEl, trebleVal, v=>v+' dB'); wireSlider(reverbEl, reverbVal, v=>v+'%'); wireSlider(delayEl, delayVal, v=>v+' ms'); wireSlider(gainEl, gainVal, v=>v+'%');
+
+  // presets config
+  const presets = {
+    nightcore: {speed:1.15,pitch:0,bass:2,treble:1,reverb:10,delay:0,gain:100},
+    daycore: {speed:0.92,pitch:-2,bass:2,treble:0,reverb:8,delay:0,gain:95},
+    slowed: {speed:0.8,pitch:-2,bass:0,treble:-1,reverb:18,delay:0,gain:95},
+    bassboost: {speed:1,pitch:0,bass:6,treble:0,reverb:6,delay:0,gain:120},
+    eightd: {speed:1,pitch:0,bass:2,treble:0,reverb:6,delay:120,gain:100},
+    chipmunk: {speed:1.4,pitch:7,bass:0,treble:2,reverb:6,delay:0,gain:105},
+    demon: {speed:1.2,pitch:-6,bass:2,treble:-2,reverb:14,delay:0,gain:120},
+    vapor: {speed:0.85,pitch:-3,bass:1,treble:-2,reverb:12,delay:80,gain:100},
+    tstyle: {speed:1.05,pitch:0,bass:3,treble:1,reverb:6,delay:0,gain:105},
+    reset: {speed:1,pitch:0,bass:0,treble:0,reverb:0,delay:0,gain:100}
+  };
+
+  let activePresetId = null;
+  function clearPresetHighlight(){ presetButtons.forEach(b=>b.classList.remove('preset-selected')); activePresetId = null; }
+  function highlightPreset(id){ clearPresetHighlight(); const btn = document.getElementById(id); if(btn) { btn.classList.add('preset-selected'); activePresetId = id; } }
+
+  // attach preset buttons
+  presetButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.id;
+      const p = presets[id]; if(!p) return;
+      // apply
+      speedEl.value = p.speed; pitchEl.value = p.pitch; bassEl.value = p.bass; trebleEl.value = p.treble; reverbEl.value = p.reverb; delayEl.value = p.delay; gainEl.value = p.gain;
+      [speedEl,pitchEl,bassEl,trebleEl,reverbEl,delayEl,gainEl].forEach(el=>el.dispatchEvent(new Event('input')));
+      if(id === 'reset') clearPresetHighlight(); else highlightPreset(id);
+    });
   });
 
-  rewindBtn.addEventListener('click',()=>{
-    if (!buffer) return;
-    const cur = currentOffset();
-    const newOffset = Math.max(0, cur - 5);
-    pausedAt = newOffset;
-    if (isPlaying){
-      startPlayback(pausedAt);
-    } else {
-      updateTimeUI();
-    }
-  });
+  // play/pause
+  playBtn.addEventListener('click', ()=>{ if(!buffer) return alert('Load an audio file first'); if(!isPlaying){ startPlayback(pausedAt); playBtn.textContent = 'Pause'; } else { pausedAt = currentOffset(); stopPlayback(); playBtn.textContent = 'Play'; } });
 
-  // sliders update UI
-  function wireSlider(slider, display, fmt){
-    const set = ()=>{ display.textContent = fmt ? fmt(slider.value) : slider.value; styleRange(slider); };
-    slider.addEventListener('input', ()=>{ set(); if (isPlaying){ // restart source to apply new value
-      const cur = currentOffset();
-      pausedAt = cur;
-      startPlayback(pausedAt);
-    } else updateTimeUI(); });
-    set();
-  }
+  rewindBtn.addEventListener('click', ()=>{ if(!buffer) return; const cur = currentOffset(); const newOffset = Math.max(0, cur - 5); pausedAt = newOffset; if(isPlaying) startPlayback(pausedAt); else updateTimeUI(); });
 
-  wireSlider(speedEl, speedVal, v=>parseFloat(v).toFixed(2)+'x');
-  wireSlider(pitchEl, pitchVal, v=>v+' st');
-  wireSlider(bassEl, bassVal, v=>v+' dB');
-  wireSlider(reverbEl, reverbVal, v=>v+'%');
-  wireSlider(gainEl, gainVal, v=>v+'%');
-
-  // presets
-  nightcoreBtn.addEventListener('click', ()=>{
-    speedEl.value = 1.15; pitchEl.value = 0; bassEl.value = 2; reverbEl.value = 12; gainEl.value = 110;
-    [speedEl,pitchEl,bassEl,reverbEl,gainEl].forEach(el=>el.dispatchEvent(new Event('input')));
-  });
-  daycoreBtn.addEventListener('click', ()=>{
-    speedEl.value = 0.92; pitchEl.value = -2; bassEl.value = 2; reverbEl.value = 8; gainEl.value = 95;
-    [speedEl,pitchEl,bassEl,reverbEl,gainEl].forEach(el=>el.dispatchEvent(new Event('input')));
-  });
-  resetBtn.addEventListener('click', ()=>{
-    speedEl.value = 1; pitchEl.value = 0; bassEl.value = 0; reverbEl.value = 0; gainEl.value = 100;
-    [speedEl,pitchEl,bassEl,reverbEl,gainEl].forEach(el=>el.dispatchEvent(new Event('input')));
-  });
-
-  // export / download WAV
+  // export / download WAV with OfflineAudioContext
   downloadBtn.addEventListener('click', async ()=>{
     if (!buffer) return alert('Load an audio file first');
-    downloadBtn.textContent = 'Rendering...';
-    downloadBtn.disabled = true;
+    downloadBtn.textContent = 'Rendering...'; downloadBtn.disabled = true;
     try{
       const wav = await renderProcessedWav();
       const url = URL.createObjectURL(wav);
-      const a = document.createElement('a');
-      a.href = url; a.download = (fileInput.files[0] && fileInput.files[0].name.replace(/\.[^/.]+$/, '')) || 'processed';
-      a.download += '_processed.wav';
-      document.body.appendChild(a); a.click(); a.remove();
-      URL.revokeObjectURL(url);
-    }catch(err){
-      console.error(err); alert('Rendering failed: '+err.message);
-    }
-    downloadBtn.textContent = 'Download';
-    downloadBtn.disabled = false;
+      const a = document.createElement('a'); a.href = url; a.download = (fileInput.files[0] && fileInput.files[0].name.replace(/\.[^/.]+$/,'')) || 'processed'; a.download += '_processed.wav'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }catch(err){ console.error(err); alert('Rendering failed: '+err.message); }
+    downloadBtn.textContent = 'Download'; downloadBtn.disabled = false;
   });
 
   // Render processed audio to WAV using OfflineAudioContext
@@ -452,104 +381,67 @@
     const playbackRate = speed * pitchRatio;
 
     const outDuration = buffer.duration / playbackRate;
-
     const sampleRate = buffer.sampleRate;
     const offline = new OfflineAudioContext(buffer.numberOfChannels, Math.ceil(outDuration * sampleRate), sampleRate);
 
-    const src = offline.createBufferSource();
-    src.buffer = buffer;
-    src.playbackRate.value = playbackRate;
+    const src = offline.createBufferSource(); src.buffer = buffer; src.playbackRate.value = playbackRate;
 
     const lowShelf = offline.createBiquadFilter(); lowShelf.type = 'lowshelf'; lowShelf.frequency.value = 200; lowShelf.gain.value = parseFloat(bassEl.value);
+    const highShelf = offline.createBiquadFilter(); highShelf.type = 'highshelf'; highShelf.frequency.value = 3000; highShelf.gain.value = parseFloat(trebleEl.value);
+    const convolver = offline.createConvolver(); const reverbAmount = parseFloat(reverbEl.value)/100; if (reverbAmount > 0) convolver.buffer = makeImpulseResponse(offline, 2.5 * reverbAmount, 2.0 * reverbAmount);
     const gainNode = offline.createGain(); gainNode.gain.value = parseFloat(gainEl.value)/100;
-    const convolver = offline.createConvolver();
-    const reverbAmount = parseFloat(reverbEl.value)/100;
-    if (reverbAmount > 0) convolver.buffer = makeImpulseResponse(offline, 2.5 * reverbAmount, 2.0 * reverbAmount);
+    const delayNode = offline.createDelay(5.0); delayNode.delayTime.value = parseFloat(delayEl.value)/1000.0;
+    const panner = offline.createStereoPanner ? offline.createStereoPanner() : null;
 
-    src.connect(lowShelf);
-    lowShelf.connect(gainNode);
-    if (convolver.buffer){ lowShelf.connect(convolver); convolver.connect(gainNode); }
+    // routing
+    src.connect(lowShelf); lowShelf.connect(highShelf); highShelf.connect(gainNode);
+    if (convolver.buffer){ highShelf.connect(convolver); convolver.connect(gainNode); }
+    gainNode.connect(delayNode); delayNode.connect(offline.destination);
     gainNode.connect(offline.destination);
 
-    src.start(0, 0);
+    // If 8D preset is active, schedule simple pan automation across the offline context
+    if (activePresetId === 'eightd' && panner){
+      // insert panner between gainNode and delayNode
+      highShelf.disconnect(); highShelf.connect(panner);
+      panner.connect(gainNode);
+      // pan automation
+      const durationSec = outDuration;
+      const steps = Math.ceil(durationSec * 10); // 10 steps per second
+      for (let i = 0; i <= steps; i++){
+        const t = (i/steps) * durationSec;
+        const pan = Math.sin(t * 2 * Math.PI * 0.18) * 0.9;
+        panner.pan.setValueAtTime(pan, t);
+      }
+    }
 
+    src.start(0,0);
     const rendered = await offline.startRendering();
-
-    const wavBlob = bufferToWavBlob(rendered);
-    return wavBlob;
+    return bufferToWavBlob(rendered);
   }
 
   // Utility: convert AudioBuffer to WAV
   function bufferToWavBlob(abuffer){
-    const numChannels = abuffer.numberOfChannels;
-    const sampleRate = abuffer.sampleRate;
-    const format = 1; // PCM
-    const bitsPerSample = 16;
-
-    const channelData = [];
-    for (let ch = 0; ch < numChannels; ch++) channelData.push(abuffer.getChannelData(ch));
+    const numChannels = abuffer.numberOfChannels; const sampleRate = abuffer.sampleRate; const bitsPerSample = 16;
+    const channelData = []; for (let ch=0; ch<numChannels; ch++) channelData.push(abuffer.getChannelData(ch));
     const length = abuffer.length * numChannels * (bitsPerSample/8);
-    const buffer2 = new ArrayBuffer(44 + length);
-    const view = new DataView(buffer2);
-
+    const buffer2 = new ArrayBuffer(44 + length); const view = new DataView(buffer2);
     let offset = 0;
-    function writeString(s){ for (let i=0;i<s.length;i++) view.setUint8(offset++, s.charCodeAt(i)); }
-    function writeInt32(v){ view.setUint32(offset, v, true); offset += 4; }
-    function writeInt16(v){ view.setInt16(offset, v, true); offset += 2; }
-
-    writeString('RIFF');
-    writeInt32(36 + length);
-    writeString('WAVE');
-    writeString('fmt ');
-    writeInt32(16);
-    writeInt16(format);
-    writeInt16(numChannels);
-    writeInt32(sampleRate);
-    writeInt32(sampleRate * numChannels * bitsPerSample/8);
-    writeInt16(numChannels * bitsPerSample/8);
-    writeInt16(bitsPerSample);
-    writeString('data');
-    writeInt32(length);
-
-    const volume = 1;
-    for (let i = 0; i < abuffer.length; i++){
-      for (let ch = 0; ch < numChannels; ch++){
-        let sample = channelData[ch][i] * volume;
-        sample = Math.max(-1, Math.min(1, sample));
-        view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7FFF, true);
-        offset += 2;
-      }
-    }
-
+    function writeString(s){ for(let i=0;i<s.length;i++) view.setUint8(offset++, s.charCodeAt(i)); }
+    function writeInt32(v){ view.setUint32(offset, v, true); offset +=4; }
+    function writeInt16(v){ view.setInt16(offset, v, true); offset +=2; }
+    writeString('RIFF'); writeInt32(36 + length); writeString('WAVE'); writeString('fmt '); writeInt32(16); writeInt16(1); writeInt16(numChannels); writeInt32(sampleRate); writeInt32(sampleRate * numChannels * bitsPerSample/8); writeInt16(numChannels * bitsPerSample/8); writeInt16(bitsPerSample); writeString('data'); writeInt32(length);
+    const volume = 1; for (let i=0;i<abuffer.length;i++){ for (let ch=0; ch<numChannels; ch++){ let sample = channelData[ch][i] * volume; sample = Math.max(-1, Math.min(1, sample)); view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7FFF, true); offset +=2; } }
     return new Blob([view], {type: 'audio/wav'});
   }
 
   // clicking the progress bar to seek
-  document.getElementById('progress').addEventListener('click', (e)=>{
-    if (!buffer) return;
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const pct = Math.max(0, Math.min(1, x / rect.width));
-    pausedAt = pct * buffer.duration;
-    if (isPlaying){ startPlayback(pausedAt); }
-    else updateTimeUI();
-  });
+  document.getElementById('progress').addEventListener('click', (e)=>{ if (!buffer) return; const rect = e.target.getBoundingClientRect(); const x = e.clientX - rect.left; const pct = Math.max(0, Math.min(1, x / rect.width)); pausedAt = pct * buffer.duration; if (isPlaying){ startPlayback(pausedAt); } else updateTimeUI(); });
 
   // keyboard space to play/pause
-  window.addEventListener('keydown', (e)=>{
-    if (e.code === 'Space'){
-      e.preventDefault(); playBtn.click();
-    }
-  });
+  window.addEventListener('keydown', (e)=>{ if (e.code === 'Space'){ e.preventDefault(); playBtn.click(); } });
 
   // small helper to update range style from inside event scope
-  function styleRange(el){
-    const min = parseFloat(el.min || 0);
-    const max = parseFloat(el.max || 100);
-    const val = parseFloat(el.value);
-    const pct = ((val - min) / (max - min)) * 100;
-    el.style.background = `linear-gradient(90deg,var(--accent) ${pct}%, #e9e9ef ${pct}%)`;
-  }
+  function styleRange(el){ const min = parseFloat(el.min || 0); const max = parseFloat(el.max || 100); const val = parseFloat(el.value); const pct = ((val - min) / (max - min)) * 100; el.style.background = `linear-gradient(90deg,var(--accent) ${pct}%, #1b1b2a ${pct}%)`; }
 
 })();
 </script>
